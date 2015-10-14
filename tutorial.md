@@ -1,4 +1,4 @@
- ## Stubbing a JSON API spec API with ember-cli-mirage
+## Stubbing a JSON API spec API with ember-cli-mirage
 
 When developing a client side javascript app, you won’t always have an API available before you start. Even when you do, you probably don’t want to have your tests reliant on the the API end-points.
 
