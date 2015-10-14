@@ -1,0 +1,124 @@
+{
+  "app/adapters/*.js": {
+    "command": "adapter",
+    "template": [
+      "// export default DS.{capitalize}Adapter.extend();",
+    ]
+  },
+
+  "tests/acceptance/*.js": {
+    "command": "acceptancetest",
+    "template": [
+      "// acceptance test",
+    ]
+  },
+
+  "tests/unit/models/*.js": {
+    "command": "unittest",
+    "template": [
+      "// unit test",
+    ]
+  },
+
+  "app/components/*.js": {
+    "command": "component",
+    "template": [
+      "import Ember from 'ember';",
+      "export default Ember.Component.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/controllers/*.js": {
+    "command": "controller",
+    "template": [
+      "import Ember from 'ember';",
+      "export default Ember.Controller.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/helpers/*.js": {
+    "command": "helper",
+    "template": [
+      "// Please note that Handlebars helpers will only be found automatically by the",
+      "// resolver if their name contains a dash (reverse-word, translate-text, etc.)",
+      "// For more details: http://stefanpenner.github.io/ember-app-kit/guides/using-modules.html",
+      "",
+      "export default Ember.Handlebars.makeBoundHelper(function() {",
+      "",
+      "});",
+    ]
+  },
+
+  "app/models/*.js": {
+    "command": "model",
+    "template": [
+      "import DS from 'ember-data'",
+      "export default DS.Model.extend({",
+      "",
+      "});",
+    ]
+  },
+
+  "app/router.js": {
+    "command": "router"
+  },
+
+  "app/routes/*.js": {
+    "command": "route",
+    "template": [
+      "import Ember from 'ember';",
+      "export default Ember.Route.extend({",
+      "",
+      "});",
+    ]
+
+  },
+
+  "app/styles/*.scss": {
+    "command": "style",
+    "template": [
+      "/* {}.scss */",
+      "",
+    ]
+  },
+
+  "app/templates/*.hbs": {
+    "command": "template"
+  },
+
+  "app/utils/*.js": {
+    "command": "util"
+  },
+
+  "app/mirage/config.js": {
+    "command": "mirage"
+  },
+
+  "app/mirage/factories/*.js": {
+    "command": "factory",
+    "template": [
+      "import Mirage from 'ember-cli-mirage';",
+      "export default Mirage.Factory.extend({",
+      "});"
+    ]
+  },
+
+  "app/mirage/scenarios/*.js": {
+    "command": "scenario"
+  },
+
+
+  "app/views/*.js": {
+    "command": "view",
+    "template": [
+      "import Ember from 'ember';",
+      "export default Ember.View.extend({",
+      "",
+      "});",
+    ]
+  },
+}

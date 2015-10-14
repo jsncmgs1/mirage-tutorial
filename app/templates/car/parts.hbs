@@ -1,0 +1,12 @@
+<ul>
+  {{model.name}}
+  {{#each model.parts as |part|}}
+  <li class='part'>
+    {{part.name}}
+  </li>
+  {{/each}}
+</ul>
+
+{{#lin -to 'car.new-part' model class='new-part'}}
+  Add new Part
+{{/link-to}}

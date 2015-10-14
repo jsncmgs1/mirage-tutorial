@@ -1,0 +1,9 @@
+<ul class='cars'>
+  {{#each model as |car|}}
+    {{a-car car=car}}
+  {{/each}}
+</ul>
+
+{{#link-to 'cars.new' id='add-car'}}
+  Add new car
+{{/link-to}}
