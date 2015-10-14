@@ -798,5 +798,5 @@ this.post('parts', (db, request) => {
 
 And we're done! This process will be even easier once Mirage supports JSON API, which is on its way.  You can view the source at https://github.com/jsncmgs1/mirage-tutorial.git.
 <hr/>
-1. [http://coryforsyth.com/2014/07/10/demystifing-ember-async-testing/)]
-2. [http://jsonapi.org/]
+1. [Demystifying Ember Async Testing](http://coryforsyth.com/2012/07/10/demystifing-ember-async-testing/)
+2. [JSON API](http://jsonapi.org/)
