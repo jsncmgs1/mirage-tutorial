@@ -9,8 +9,8 @@ export default function() {
          attributes: attrs ,
          relationships: {
            parts: {
-                    data: {}
-                  }
+            data: {}
+           }
          },
       };
 
@@ -19,8 +19,8 @@ export default function() {
       .map((attrs) => {
         return {
           type: 'parts',
-        id: attrs.id,
-        attributes: attrs
+          id: attrs.id,
+          attributes: attrs
         };
       });
 
@@ -44,8 +44,8 @@ export default function() {
     attributes: car,
     relationships: {
       parts:{
-              data:{}
-            }
+        data:{}
+      }
     }
     };
 
@@ -61,8 +61,8 @@ export default function() {
 
     let data = {
       type: 'parts',
-    id: request.params.id,
-    attributes: part,
+      id: request.params.id,
+      attributes: part,
     };
 
     return { data };
