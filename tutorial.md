@@ -2,7 +2,7 @@
 
 When developing a client side javascript app, you won’t always have an API available before you start. Even when you do, you probably don’t want to have your tests reliant on the the API end-points.
 
-Luckily, there is a great solution to stubbing out an API while building your Ember app; [EmberCLI Mirage](http://www.ember-cli-mirage.com/). Mirage works great when Ember Data is expecting a REST API, but there's some manual conversion that must be done if you want to consume JSON API [2](http://jsonapi.org/), which I ran into recently on a project.
+Luckily, there is a great solution to stubbing out an API while building your Ember app; [EmberCLI Mirage](http://www.ember-cli-mirage.com/). Mirage works great when Ember Data is expecting a REST API, but there's some manual conversion that must be done if you want to consume JSON API [^1](http://jsonapi.org/), which I ran into recently on a project.
 
 In this tutorial we will leverage QUnit and Mirage's factories and API DSL to craft explicit acceptance tests as we build our application.
 
@@ -78,7 +78,7 @@ $ ember g acceptance-test cars
 ```
 
 Ember generates a test for us at tests/acceptance/cars-test.js, with a generated test which checks to make sure our route functions. Let's change it to test a link to the cars index on the application template.  When writing QUnit, you'll simulate all your user navigations ('click', 'visit', etc), which run asynchronously. Assertions are called in the andThen() callback, which will run after all the async operations are complete.
-[1](http://coryforsyth.com/2014/07/10/demystifing-ember-async-testing/)
+[^2](http://coryforsyth.com/2014/07/10/demystifing-ember-async-testing/)
 
 ```javascript
 //app/tests/acceptance/cars.js
