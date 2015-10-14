@@ -617,14 +617,14 @@ export default function() {
       };
 
       car['relationships']['parts']['data'] = db.parts
-      .where({car_id: attrs.id})
-      .map((attrs) => {
-        return {
-          type: 'parts',
-          id: attrs.id,
-          attributes: attrs
-        };
-      });
+        .where({car_id: attrs.id})
+        .map((attrs) => {
+          return {
+            type: 'parts',
+            id: attrs.id,
+            attributes: attrs
+          };
+        });
 
       return car;
 
