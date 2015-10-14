@@ -2,7 +2,7 @@
 
 When developing a client side javascript app, you won’t always have an API available before you start. Even when you do, you probably don’t want to have your tests reliant on the the API end-points.
 
-Luckily, there is a great solution to stubbing out an API while building your Ember app; [EmberCLI Mirage](http://www.ember-cli-mirage.com/). Mirage works great when Ember Data is expecting a REST API, but there's some manual conversion that must be done if you want to consume JSON API [^1](http://jsonapi.org/), which I ran into recently on a project.
+Luckily, there is a great solution to stubbing out an API while building your Ember app; [Ember CLI Mirage](http://www.ember-cli-mirage.com/). Mirage works great when Ember Data is expecting a REST API, but there's some manual conversion that must be done if you want to consume JSON API [^1](http://jsonapi.org/), which I ran into recently on a project.
 
 In this tutorial we will leverage QUnit and Mirage's factories and API DSL to craft explicit acceptance tests as we build our application.
 
@@ -202,7 +202,7 @@ export default Ember.Route.extend({
 
 When we hit the model hook in our route, Ember Data sends out a GET request to /cars. If you let the test run, the test will seem frozen without the chrome debugger open.  Mirage will log an error to the console saying there's no end point for `GET /cars`.
 
-Let’s create a route for Mirage so it can intercept this request.  For the tutorial we will use the longer syntax, because Mirage doesn’t handle JSON API in the shorthand syntax - yet.
+Let’s create a route for Mirage so it can intercept this request.  For the tutorial we will use the longer syntax, because Mirage doesn’t handle JSON API in the shorthand syntax - yet. When the json-api-serializer branch of Mirage gets merged (which should be soon), Mirage will be able to take care of a lot of the payload transforming itself.
 
 JSON API expects a response with a top level key named 'data', which contains an array of the resources returned.  Each resource should have a specified type,
 the id of the resource, and the resource attributes. When Mirage responds to a request, it will log the response object in the console for inspection. The object should look like this:
@@ -800,3 +800,4 @@ And we're done! This process will be even easier once Mirage supports JSON API, 
 <hr/>
 1. [Demystifying Ember Async Testing](http://coryforsyth.com/2012/07/10/demystifing-ember-async-testing/)
 2. [JSON API](http://jsonapi.org/)
+3. [Ember CLI Mirage](http://www.ember-cli-mirage.com/)
