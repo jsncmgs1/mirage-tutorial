@@ -152,7 +152,7 @@ export default Mirage.Factory.extend({
   name(i) { return `Car ${i + 1}`;}
 });
 ```
-This will create a car with a name attribute. This `(i)` syntax is used for Mirage sequences, since we created a list of cars, the first name will be "Car 1", then "Car 2", etc.
+This will create a car with a name attribute. This `(i)` syntax is used for Mirage sequences, the first name will be "Car 1", then "Car 2", etc.
 
 If we check our tests again, it will fail, finding 0 cars when expecting 1. To get the cars on the page, our `car/index` route will need to load the car model.
 
@@ -200,7 +200,7 @@ export default Ember.Route.extend({
 
 ```
 
-When we hit the model hook in our route, Ember Data sends out a GET request to /cars. If you let the test run, the test will seem frozen without the chrome debugger open.  Mirage will log an error to the console saying there's no end point for `GET /cars`.
+When we hit the model hook in our route, Ember Data sends out a `GET` request to `/cars`. If you let the test run, the test will seem frozen without the chrome debugger open.  Mirage will log an error to the console saying there's no end point for `GET /cars`.
 
 Let’s create a route for Mirage so it can intercept this request.  For the tutorial we will use the longer syntax, because Mirage doesn’t handle JSON API in the shorthand syntax - yet. When the json-api-serializer branch of Mirage gets merged (which should be soon), Mirage will be able to take care of a lot of the payload transforming itself.
 
@@ -271,7 +271,7 @@ Now that we have a working acceptance test, lets create a car component for our 
 ember g component a-car
 ```
 
-Ember created a component integration test, which we'll use. It's easy to setup Mirage for an integration tests.  Under tests/helpers/, create a file called mirage.integration.js
+Ember created a component integration test, which we'll use. It's easy to setup Mirage for an integration tests.  Under tests/helpers/, create a file called mirage-integration.js
 
 ```javascript
 //tests/helpers/mirage-integration.js
