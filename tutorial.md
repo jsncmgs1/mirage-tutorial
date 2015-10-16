@@ -63,7 +63,7 @@ Mirage will create a mirage directory under app/. It contains a `config.js` file
 Mirage gives you shorthand syntax for simple routes, but you can create manual routes when shorthand won’t work. [Mirage docs](http://www.ember-cli-mirage.com/docs/v0.1.x/defining-routes/) have a
 short and clear description of how to handle your routes.
 
-**Scenarios**: Mirage creates a default.js scenario for you.  Inside the scenario you declare all the data you want to seed your development environment with.  This data will not be in the test environment.
+**Scenarios**: Mirage creates a `default.js` scenario for you.  Inside the scenario you declare all the data you want to seed your development environment with.  This data will not be in the test environment.
 
 **Factories**: Your mirage scenario will use the factories you define to generate your data, and you should use them in your tests as well.
 
@@ -77,7 +77,7 @@ Let's create a cars acceptance test.
 $ ember g acceptance-test cars
 ```
 
-Ember generates a test for us at tests/acceptance/cars-test.js, with a generated test which checks to make sure our route functions. Let's change it to test a link to the cars index on the application template.  When writing QUnit, you'll simulate all your user navigations ('click', 'visit', etc), which run asynchronously. Assertions are called in the andThen() callback, which will run after all the async operations are complete.
+Ember generates a test for us at `tests/acceptance/cars-test.js`, with a generated test which checks to make sure our route functions. Let's change it to test a link to the cars index on the application template.  When writing QUnit, you'll simulate all your user navigations ('click', 'visit', etc), which run asynchronously. Assertions are called in the andThen() callback, which will run after all the async operations are complete.
 [^2](http://coryforsyth.com/2014/07/10/demystifing-ember-async-testing/)
 
 ```javascript
@@ -111,7 +111,7 @@ Now QUnit tells us there's no `cars.index` route.
 $ ember g route cars
 ```
 
-Ember will add the route for you in the router.js file.  It adds the empty object, but we also need to pass an empty function so that an `cars/index` route is generated. Unfortunately, `this.route('cars', {})` would not create it.
+Ember will add the route for you in the `router.js` file.  It adds the empty object, but we also need to pass an empty function so that an `cars/index` route is generated. Unfortunately, `this.route('cars', {})` would not create it.
 
 ```javascript
 //router.js
@@ -263,7 +263,7 @@ export default function(server) {
 
 Whats going on here?
 
-When we visit the cars route, ember sends us to the cars/index route. The route fires the model hook, where ember data sends out a GET request for all of the cars.  The mirage route in mirage/config.js intercepts the request, gets the cars that we generated in the test, adds them to a JSON API formatted object, and sends it back as the response.  No api needed!
+When we visit the cars route, ember sends us to the cars/index route. The route fires the model hook, where ember data sends out a `GET` request for all of the cars.  The mirage route in `mirage/config.js` intercepts the request, gets the cars that we generated in the test, adds them to a JSON API formatted object, and sends it back as the response.  No api needed!
 
 Now that we have a working acceptance test, lets create a car component for our cars to live in.
 
@@ -271,7 +271,7 @@ Now that we have a working acceptance test, lets create a car component for our 
 ember g component a-car
 ```
 
-Ember created a component integration test, which we'll use. It's easy to setup Mirage for an integration tests.  Under tests/helpers/, create a file called mirage-integration.js
+Ember created a component integration test, which we'll use. It's easy to setup Mirage for an integration tests.  Under `tests/helpers/`, create a file called `mirage-integration.js`
 
 ```javascript
 //tests/helpers/mirage-integration.js
@@ -288,13 +288,13 @@ and in your component test, import the setupMirage function, you will invoke in 
 //app/tests/integration/components/a-car-test.js
 
 import { moduleForComponent, test } from 'ember-qunit';
-import startMirage from '../../helpers/mirage-integration';
+import setupMirage from '../../helpers/mirage-integration';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('a-car', 'Integration | Component | a car', {
   integration: true,
   setup() {
-    startMirage(this.container);
+    setupMirage(this.container);
   }
 });
 
@@ -596,7 +596,7 @@ export default function() {
 
 Additionally, in our Mirage '/cars' route, we are only
 returning the car information, not the associated parts.  What this means is, if the first page we visit is the '/cars' page, those cars will already be loaded in the store (with no knowledge of any associated parts).
-When we go to the cars/part page, the store won't fetch the model, because it's already loaded, and no parts will be loaded.  We should load those in the index.
+When we go to the cars/part page, the store won't fetch the model, because it's already in the store, so there will be no parts available to render.  We should load a cars parts in the cars/index route.
 
 ```javascript
 //mirage/config.js
