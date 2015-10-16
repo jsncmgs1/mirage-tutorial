@@ -583,7 +583,7 @@ export default function() {
       }
     }
 
-    data['relationships']['parts']['data'] = parts.map((attrs) => {
+    data.relationships.parts.data = parts.map((attrs) => {
       return { type: 'parts', id: attrs.id, attributes: attrs };
     });
 
@@ -616,7 +616,7 @@ export default function() {
         },
       };
 
-      car['relationships']['parts']['data'] = db.parts
+      car.relationships.parts.data = db.parts
         .where({car_id: attrs.id})
         .map((attrs) => {
           return {
