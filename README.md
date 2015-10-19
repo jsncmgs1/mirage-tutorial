@@ -1,6 +1,6 @@
 # Mirage-tutorial
 
-Tutorial found in the `tutorial.md` file, and soon at hashrocket.com/blog
+Tutorial found in the at [Hashrocket Blog](http://hashrocket.com/blog/posts/test-driving-a-stubbed-api-in-ember-with-ember-cli-mirage) and the tutorial.md file.
 
 * [ember.js](http://emberjs.com/)
 * [ember-cli](http://www.ember-cli.com/)

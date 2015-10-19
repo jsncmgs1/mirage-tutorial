@@ -31,6 +31,7 @@ export default function() {
   });
 
   this.post('/cars', (db, request) => {
+    debugger
     return JSON.parse(request.requestBody);
   });
 
